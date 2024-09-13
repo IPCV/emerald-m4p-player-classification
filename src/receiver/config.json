@@ -1,0 +1,42 @@
+{
+    "DEVICE": "cpu",
+    "METADATA_FILE": "metadata.json",
+    "PROCESSED_FOLDER": "processed",
+    "UPLOAD_FOLDER": "uploads",
+    "YOLO": {
+        "weights_file": "receiver/weights/yolov7.pt",
+        "image_size": 640,
+        "augment": false,
+        "conf_thres": 0.25,
+        "iou_thres": 0.45,
+        "classes": [0],
+        "agnostic_nms": false
+    },
+    "TRANSKIT": {
+      "weights_file": "receiver/weights/transkit.pth",
+      "backbone": {
+        "model": {
+          "name": "mobilenet_v3_small",
+          "dim": 128
+        }
+      },
+      "transformer": {
+        "model": {
+          "num_heads": 32,
+          "num_encoder_layers": 26,
+          "dim_feedforward": 260,
+          "dropout": 0.1,
+          "norm_first": true,
+          "batch_first": true,
+          "use_positional_encoding": false
+        }
+      },
+      "data": {
+        "num_classes": 5,
+        "padding_token": -1,
+        "use_groundtruth": false,
+        "use_player_coords": false,
+        "use_background": true
+      }
+    }
+}
