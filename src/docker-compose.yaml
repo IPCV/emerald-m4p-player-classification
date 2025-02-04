@@ -10,6 +10,7 @@ services:
     - ./receiver/receiver.py:/app/receiver.py
     #   - ./receiver/uploads:/app/uploads uncomment for latest test stage
     command: ["python", "receiver.py"]
+    ipc: host # Add this line to set shared memory size
 
   simple-sender:
     build:
